@@ -91,8 +91,8 @@
 				<a href="#" class="nav-item nav-link">Home</a>
 	            <a href="#" class="nav-item nav-link">산 별 정보</a>
 	            <a href="/crew/user/insert.cr" class="nav-item nav-link">크루</a>
-	            <a href="/crewboard/list.bdcr" class="nav-item nav-link">크루게시판</a>
-	                
+	            <a href="/crewboard/all/list.bdcr" class="nav-item nav-link">크루게시판</a>
+	            <a href="/qna/all/list.qna" class="nav-item nav-link">QnA</a>    
 	           <div class="nav-item dropdown">
 	               <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">커뮤니티</a>
 	               <div class="dropdown-menu bg-light m-0">

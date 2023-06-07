@@ -55,7 +55,7 @@ public class CrewBoardDao {
 	public int getTotalCount(Map<String, Object> map) {
 		int totalCount = 0;
 		//totalCount = sqlSessionTemplate.selectOne(namespace+".GetTotalCount", map);
-		totalCount = sqlSessionTemplate.selectOne("GetTotalCount", map);
+		//totalCount = sqlSessionTemplate.selectOne("GetTotalCount", map);
 		return totalCount;
 	}
 	

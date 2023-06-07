@@ -5,7 +5,7 @@
 <mapper namespace="login">
 
 	<select id="getInfo" parameterType="com.spring.ex.login.model.UsersBean" 
-								   resultType="com.spring.ex.login.model.UsersBean">
+						 resultType="com.spring.ex.login.model.UsersBean">
 		SELECT 
 				user_num as userNum,
 				user_id as userId,

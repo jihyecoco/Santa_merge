@@ -21,7 +21,7 @@ import com.spring.ex.utility.Paging;
 public class CrewBoardListController {
 	
 	//private final String command = "/list.bdcr";
-	private final String command = "/crewboard/list.bdcr";
+	private final String command = "/crewboard/all/list.bdcr";
 	private final String getPage = "/crewboard/crewboardList";
 	
 	@Autowired

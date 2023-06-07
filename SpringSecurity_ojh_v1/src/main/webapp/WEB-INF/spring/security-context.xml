@@ -28,17 +28,32 @@
 		<intercept-url pattern="/favicon.ico" 						access="hasRole('ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/resources/**" 						access="permitAll" />
 		<intercept-url pattern="/resources/bootstrap/**" 			access="permitAll" />
-		<intercept-url pattern="/login/**" 							access="permitAll" />		
-		<intercept-url pattern="/crew/**" 							access="permitAll" />
-		<intercept-url pattern="/crew/user/**" 						access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
-		<intercept-url pattern="/crewboard/**" 						access="permitAll" />
-		<intercept-url pattern="/crewboard/user/**" 				access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
-		<intercept-url pattern="/crewcomments/**" 					access="permitAll" />
-		<intercept-url pattern="/crewcomments/user/**" 				access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
-		<intercept-url pattern="/product/**" 						access="permitAll" />
-		<intercept-url pattern="/product/user/**" 					access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
-		<intercept-url pattern="/**" 								access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 		
+		<intercept-url pattern="/crew/all/**" 						access="permitAll" />
+		<intercept-url pattern="/crewboard/all/**" 					access="permitAll" />
+		<intercept-url pattern="/crewcomments/all/**" 				access="permitAll" />
+		<intercept-url pattern="/product/all/**" 					access="permitAll" />
+		<intercept-url pattern="/qna/all/**" 						access="permitAll" />
+		<intercept-url pattern="/mountain/all/**" 					access="permitAll" />
+		
+		
+		<intercept-url pattern="/login/**" 							access="permitAll" />		
+		
+		<intercept-url pattern="/crew/user/**" 						access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/crewboard/user/**" 				access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/crewcomments/user/**" 				access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/product/user/**" 					access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/qna/user/**" 						access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		<intercept-url pattern="/qna/admin/**" 						access="hasRole('ADMIN')" />
+		
+		<intercept-url pattern="/mountain/admin/**" 				access="hasRole('ADMIN')" />
+		<intercept-url pattern="/stamp/user/**" 					access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+		<intercept-url pattern="/stamp/admin/**" 					access="hasRole('ADMIN')" />
+		<intercept-url pattern="/**" 								access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
 		
 		<!-- commit test
 		/common
