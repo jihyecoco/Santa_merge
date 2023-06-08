@@ -67,7 +67,7 @@
     <!-- Page Header End -->
 
 	<!-- Quote Start -->
-	<form:form commandName="cbb" name="crewboardform" action="insert.bdcr" method="post">
+	<form:form commandName="cbb" name="crewboardform" action="/crewboard/user/insert.bdcr" method="post">
     <div class="container-fluid py-5">
         <div class="container">
             <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
@@ -119,7 +119,7 @@
                             </div>
                            
                             <!-- 작성자 -->
-                           	<input type="hidden" name="writer" value="loginid">
+                           	<input type="hidden" name="writer" value="${loginId}">
                             <!-- //작성자 -->
                             
                             <hr>

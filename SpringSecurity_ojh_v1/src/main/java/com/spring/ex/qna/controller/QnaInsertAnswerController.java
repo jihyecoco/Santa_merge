@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class QnaInsertAController {
+public class QnaInsertAnswerController {
 	
 	//요청 값을 담은 변수
 	private final String command = "/qna/admin/inserta.qna";

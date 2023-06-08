@@ -14,7 +14,7 @@ public class CrewCommentsInsertController {
 	
 	//private final String command = "/insert.ccmt";
 	private final String command = "/crewcomments/user/insert.ccmt";
-	private String gotoPage = "redirect:/crewcomments/detail.bdcr";
+	private String gotoPage = "redirect:/crewboard/user/detail.bdcr";
 	
 	@Autowired
 	CrewCommentsDao ccmt_dao;

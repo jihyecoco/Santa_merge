@@ -21,8 +21,11 @@
  	
 
  	<select id="GetCrewById" resultType="com.spring.ex.crew.model.CrewBean" parameterType="com.spring.ex.crew.model.CrewBean">
- 		select * from crew
- 		where crew_manager = #{loginid}
+ 		select   
+ 		crew_num as crewNum,
+    	crew_name as crewName
+ 		from crew
+ 		where crew_manager = #{getUserId}
  	</select> 
  	
  	<update id="UpdateCrew">

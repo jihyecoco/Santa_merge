@@ -31,7 +31,18 @@ public class CrewDao {
 	public List<CrewBean> getCrewById(String loginid) {
 		List<CrewBean> cb = new ArrayList<CrewBean>();
 		//cb = sqlSessionTemplate.selectList(namespace+".GetCrewById", loginid);
+		System.out.println("crewdao 아이디 : "+loginid);
 		cb = sqlSessionTemplate.selectList("GetCrewById", loginid);
+//		for(int i=0; i<cb.size(); i++) {
+//			System.out.println("crewdao 크루이름 : "+cb.get(i).getCrewname());
+//			System.out.println("crewdao 설명 : "+cb.get(i).getCrewcontents());
+//			System.out.println("crewdao 크루멤버 : "+cb.get(i).getCrewmember());
+//			System.out.println("crewdao large : "+cb.get(i).getLarge());
+//			System.out.println("crewdao small : "+cb.get(i).getSmall());
+//			System.out.println("crewdao num : "+cb.get(i).getCrewnum());
+//			System.out.println("crewdao limit : "+cb.get(i).getCrewlimit());
+//			System.out.println("crewdao now : "+cb.get(i).getCrewnow());
+//		}
 		return cb;
 	}
 

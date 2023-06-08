@@ -11,7 +11,7 @@
 	function getAllComments(){
 		//alert('getAllComments');
 		$.ajax({
-			url : 'list.ccmt',
+			url : '/crewcomments/user/list.ccmt',
 			type : 'post',
 			data : ({
 				idx : $('input[name=idx]').val()
@@ -23,8 +23,8 @@
                 	result += "<tr><td>";
                 	if(value.relevel>0){
                 		var wid = value.relevel*20;
-                		result += "<img src='resources/images/crewcomments/level.gif' width='"+wid+"' height='15'>";
-                		result += "<img src='resources/images/crewcomments/re.gif' width='20' height='15'>";
+                		result += "<img src='../../../resources/images/crewcomments/level.gif' width='"+wid+"' height='15'>";
+                		result += "<img src='../../../resources/images/crewcomments/re.gif' width='20' height='15'>";
                 	}
                 	result += "작성자 : "+value.writer+"<br>";
                 	result += value.content+" ";
@@ -46,7 +46,7 @@
 	/* 댓글 답글달기 버튼 클릭 */
 	function replyccmt(num, idx, ref, re_step, re_level){
 		//1. 댓글 입력창 보여지기
-		var replyccmt_area = "<form action='reply.ccmt' method='post'>";
+		var replyccmt_area = "<form action='/crewcomments/user/reply.ccmt' method='post'>";
 		replyccmt_area += "<input type='hidden' name='idx' value='"+idx+"'>";
 		replyccmt_area += "<input type='hidden' name='ref' value='"+ref+"'>";
 		replyccmt_area += "<input type='hidden' name='restep' value='"+re_step+"'>";
@@ -64,7 +64,7 @@
 		}else{ // 모집중 일때
 			var choose = confirm(crewname+"에 가입하시겠습니까?");
 			if(choose == true){ // 확인 눌렀을때
-				location.href = "update.cr?crewname="+crewname;
+				location.href = "/crew/user/update.cr?crewname="+crewname;
 			}
 		}
 	}
@@ -83,7 +83,7 @@
            	<table class="table">
            		<tr align="right">
            			<td colspan="4">
-           				<input type="button" value="목록보기" onclick="location.href='list.bdcr'">
+           				<input type="button" value="목록보기" onclick="location.href='/crewboard/all/list.bdcr'">
            			</td>
            		</tr>
            		<tr align="center">
@@ -125,9 +125,9 @@
         </div>
 	   
 	    <!-- 댓글 입력창 -->
-	    <form action="insert.ccmt" method="post">
+	    <form action="/crewcomments/user/insert.ccmt" method="post">
 	    	<input type="hidden" name="idx" value="${cbb.crewboardnum}"> <!-- 원글 번호 -->
-		    <input type="hidden" name="writer" value="loginid"> <!-- 작성자 아이디 -->
+		    <input type="hidden" name="writer" value="${loginId}"> <!-- 댓글 작성자 아이디 -->
 		    
 		    <div class="card mb-2">
 			<div class="card-header bg-light">

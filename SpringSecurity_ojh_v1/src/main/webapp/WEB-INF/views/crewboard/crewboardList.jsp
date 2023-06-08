@@ -10,7 +10,7 @@
 		}else{ // 모집중 일때
 			var choose = confirm(crewname+"에 가입하시겠습니까?");
 			if(choose == true){ // 확인 눌렀을때
-				location.href = "update.cr?crewname="+crewname;
+				location.href = "/crew/user/update.cr?crewname="+crewname;
 			}
 		}
 	}
@@ -124,7 +124,7 @@
 	    					<c:if test="${lists.small == 'P'}">플로깅</c:if>
 	    				</td>
 	    				<td width="50%">
-	    					<a href="detail.bdcr?num=${lists.crewboardnum}">${lists.subject} (${lists.comments})</a>
+	    					<a href="/crewboard/user/detail.bdcr?num=${lists.crewboardnum}">${lists.subject} (${lists.comments})</a>
 	    				</td>
 	    				<td>
 	    					${lists.writer}

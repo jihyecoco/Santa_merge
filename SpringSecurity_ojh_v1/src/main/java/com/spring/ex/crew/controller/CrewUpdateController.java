@@ -20,7 +20,7 @@ public class CrewUpdateController {
 	//private final String command = "/update.cr";
 	private final String command = "/crew/user/update.cr";
 	private String getPage = "";
-	private String gotoPage = "redirect:/crew/list.bdcr";
+	private String gotoPage = "redirect:/crewboard/all/list.bdcr";
 	
 	@Autowired
 	CrewDao cdao;

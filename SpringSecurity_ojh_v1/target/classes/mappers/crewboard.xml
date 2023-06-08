@@ -5,7 +5,18 @@
   
 <!--  <mapper namespace="crewboard.CrewBoardBean"> -->
  <mapper namespace="crewboard">
- 	<select id="GetAllCrewboard" resultType="com.spring.ex.crewboard.model.CrewBoardBean">
+ 	
+ 	<!-- resultMapping 설정 -->
+ 	<resultMap type="com.spring.ex.crewboard.model.CrewBoardBean" id="crewboardMap">
+		 <id property="crewboardnum" column="crewboard_num"/>
+		 <result property="crewname" column="crew_name"/>
+		 <result property="regdate" column="reg_date"/>
+		 <result property="crewlimit" column="crew_limit"/>
+		 <result property="crewnow" column="crew_now"/>
+	</resultMap>
+	<!-- //resultMapping 설정 -->
+ 
+ 	<select id="GetAllCrewboard" resultMap="crewboardMap">
  		select crewboard_num, cb.large, cb.small, cb.state, cb.crew_name, cb.subject, cb.writer, cb.contents, cb.reg_date, cb.readcount, crew.crew_limit, crew.crew_now,
  		(select count(*) from crew_comments where idx = cb.crewboard_num) as comments
 		from crew_board cb inner join crew
@@ -29,7 +40,7 @@
  		values(crewbrd_seq.nextval, 0, #{large}, #{small}, #{crewname}, #{subject}, #{writer}, #{contents}, sysdate, 0)
  	</insert>
  	
- 	<select id="GetCrewboardByNum" resultType="com.spring.ex.crewboard.model.CrewBoardBean">
+ 	<select id="GetCrewboardByNum" resultMap="crewboardMap">
  		select crewboard_num, cb.large, cb.small, cb.state, cb.crew_name, cb.subject, cb.writer, cb.contents, cb.reg_date, cb.readcount, crew.crew_limit, crew.crew_now,
  		(select count(*) from crew_comments where idx = cb.crewboard_num) as comments
 		from crew_board cb inner join crew
@@ -37,7 +48,7 @@
 		where crewboard_num = #{num}
  	</select>
  	
- 	<select id="GetCrewboardByCrewname" resultType="com.spring.ex.crewboard.model.CrewBoardBean">
+ 	<select id="GetCrewboardByCrewname" resultMap="crewboardMap">
  		select crewboard_num, cb.large, cb.small, cb.state, cb.crew_name, cb.subject, cb.writer, cb.contents, cb.reg_date, cb.readcount, crew.crew_limit, crew.crew_now,
  		(select count(*) from crew_comments where idx = cb.crewboard_num) as comments
 		from crew_board cb inner join crew

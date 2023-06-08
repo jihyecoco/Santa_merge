@@ -29,12 +29,12 @@ public class CrewCommentsDao {
 	}
 
 	public int replyCrewComments(CrewCommentsBean ccmt_bean) {
-		//1. �썝�옒 �뙎湲� re_step �닔�젙
+		//1. 원래 댓글 re_step 수정
 		int cnt = -1;
 		//cnt = sqlSessionTemplate.update(namespace+".UpdateOrginComment", ccmt_bean);
 		cnt = sqlSessionTemplate.update("UpdateOrginComment", ccmt_bean);
-		if(cnt != -1) { // �닔�젙 �꽦怨�
-			//2. �떟 �뙎湲� insert
+		if(cnt != -1) { // 수정 성공
+			//2. 답 댓글 insert
 			int re_step = ccmt_bean.getRestep()+1;
 			ccmt_bean.setRestep(re_step);
 			int re_level = ccmt_bean.getRelevel()+1;

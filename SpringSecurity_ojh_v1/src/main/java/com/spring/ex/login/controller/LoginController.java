@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /*
 security-context.xml
@@ -31,16 +32,20 @@ public class LoginController {
 	
 	//로그인 페이지 URL 띄우기 -> command(/login/loginPage.lg)
 	@RequestMapping(value=command)
-	public String loginPage() {
-		return gotoPage; // /login/loginPage
+	public ModelAndView loginPage() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(gotoPage);// /login/loginPage
+		return mav; 
 		
-	}
+	}//loginPage
 	
 	//권한이 없는 페이지로 가려고할 때
 	@RequestMapping(value=commandDenied)
-	public String accessDeniedPage() throws Exception {
-		return getDeniedPage; // /login/accessDenied
+	public ModelAndView accessDeniedPage() throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName(getDeniedPage);// /login/accessDenied
+		return mav; 
 		
-	}
+	}//accessDeniedPage
 	
-}
+}//LoginController

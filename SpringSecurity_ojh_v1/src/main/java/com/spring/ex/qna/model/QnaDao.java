@@ -26,9 +26,9 @@ public class QnaDao {
 	
 	//튜플 전체 갯수 구하기
 	public int getTotalCount(Map<String, String> map) {
-		int cnt =1;
+		int cnt = 1;
 		//int cnt = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
-		//int cnt = sqlSessionTemplate.selectOne("GetTotalCount",map);
+		//cnt = sqlSessionTemplate.selectOne("GetTotalCount",map);
 		return cnt;
 	}//getTotalCount end
 
@@ -37,13 +37,14 @@ public class QnaDao {
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		//List<QnaBean> qnaList = sqlSessionTemplate.selectList(namespace+".GetAllQna",map,rowBounds);
 		List<QnaBean> qnaList = sqlSessionTemplate.selectList("GetAllQna",map,rowBounds);
+		System.out.println("dao qnsList : "+qnaList);
 		return qnaList;
 	}//getAllQna end
 
 	//새로운 튜플 삽입
-	public int insertQ(QnaBean qnaBean) {
+	public int insertQuestion(QnaBean qnaBean) {
 		//int cnt = sqlSessionTemplate.insert(namespace+".InsertQ",qnaBean);
-		int cnt = sqlSessionTemplate.insert("InsertQ",qnaBean);
+		int cnt = sqlSessionTemplate.insert("insertQuestion",qnaBean);
 		return cnt;
 	}//insertQna end
 	

@@ -105,11 +105,11 @@
 
 
     <!-- Quote Start -->
-    <form:form name="crewform" commandName="cb" action="insert.cr" method="post">
+    <form:form name="crewform" commandName="cb" action="/crew/user/insert.cr" method="post">
     	
     	<!-- 아이디를 hidden으로 넘김 -->
-    	<input type="hidden" name="crewmanager" value="loginid">
-    	<input type="hidden" name="crewmember" value="loginid">
+    	<input type="hidden" name="crewmanager" value="${loginId}">
+    	<input type="hidden" name="crewmember" value="${loginId}">
     	<!--  //아이디 hidden -->
     	
     <div class="container-fluid py-5">

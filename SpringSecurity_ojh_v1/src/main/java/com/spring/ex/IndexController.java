@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.ex.login.model.UsersBean;
 import com.spring.ex.login.model.UsersDao;
@@ -27,15 +28,14 @@ public class IndexController {
 	private final String command = "/main.lg";
 	private String gotoPage = "index";
 	
-	
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 	
 	@Autowired
 	UsersDao usersDao;
 	
 	@RequestMapping(value = "/main.lg", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, Principal principal) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public ModelAndView indexPage(Locale locale, Model model, Principal principal) {
+		logger.info("logger info입니다.", locale);
 		
 		String getUserId = principal.getName();			
 		// Principal은 자바의 표준 시큐리티 기술로, 로그인이 된 상태라면 계정 정보를 담고있다.
@@ -45,12 +45,12 @@ public class IndexController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("serverTime", formattedDate );
+		mav.addObject("userInfo", userInfo);
 		
-		model.addAttribute("serverTime", formattedDate );
-
-		model.addAttribute("userInfo", userInfo);
-		
-		return gotoPage; // index
-	}
+		mav.setViewName(gotoPage); // index
+		return mav; 
+	}//indexPage
 	
 }//IndexController

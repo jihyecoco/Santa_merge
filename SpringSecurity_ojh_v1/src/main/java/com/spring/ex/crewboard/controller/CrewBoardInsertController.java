@@ -1,5 +1,6 @@
 package com.spring.ex.crewboard.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -23,7 +24,7 @@ public class CrewBoardInsertController {
 	//private final String command = "/insert.bdcr";
 	private final String command = "/crewboard/user/insert.bdcr";
 	private String getPage ="/crewboard/crewboardInsertForm";
-	private String gotoPage = "redirect:/crewboard/list.bdcr";
+	private String gotoPage = "redirect:/crewboard/all/list.bdcr";
 	
 	@Autowired
 	CrewDao cdao;
@@ -33,14 +34,18 @@ public class CrewBoardInsertController {
 	
 	//crewboardList.jsp에서 요청(글쓰기 버튼클릭) -> crewboardInsertForm.jsp
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public ModelAndView doAction() {
+	public ModelAndView doAction(Principal principal) {
 		
 		ModelAndView mav = new ModelAndView();
 		//1. 비회원 일때 (로그인 페이지로 가야함)
 		
 		//2. 회원 일때
 		//내가 만든 크루 정보(로그인한 아이디로) 가져가야한다.
-		List<CrewBean> myCrew = cdao.getCrewById("loginid");
+		String getUserId = principal.getName(); 
+		List<CrewBean> myCrew = cdao.getCrewById(getUserId);
+		
+		
+		mav.addObject("getUserId", getUserId);
 		mav.addObject("myCrew", myCrew);
 		mav.setViewName(getPage);
 		
@@ -54,12 +59,14 @@ public class CrewBoardInsertController {
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doAction2(
 			@ModelAttribute("cbb") @Valid CrewBoardBean cbb
-			,BindingResult result) {
+			,BindingResult result, Principal principal) {
 		
 		ModelAndView mav = new ModelAndView();
-		
+		String getUserId = principal.getName();			
+		// Principal은 자바의 표준 시큐리티 기술로, 로그인이 된 상태라면 계정 정보를 담고있다.
 		//내가 만든 크루 정보(로그인한 아이디로) 가져가야한다.
-		List<CrewBean> myCrew = cdao.getCrewById("loginid");
+		
+		List<CrewBean> myCrew = cdao.getCrewById(getUserId);
 		mav.addObject("myCrew", myCrew);
 		
 		if(result.hasErrors()) {

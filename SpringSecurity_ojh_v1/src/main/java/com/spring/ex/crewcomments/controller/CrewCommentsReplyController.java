@@ -15,7 +15,7 @@ public class CrewCommentsReplyController {
 	//private final String command = "/reply.ccmt";
 	private final String command = "/crewcomments/user/reply.ccmt";
 	private String getPage ="";
-	private String gotoPage = "redirect:/crewcomments/detail.bdcr";
+	private String gotoPage = "redirect:/crewboard/user/detail.bdcr";
 	
 	@Autowired
 	CrewCommentsDao ccmt_dao;
