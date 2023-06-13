@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- //로그인 페이지 URL 띄우기 -> /login/all/loginPage.lg -->
+<!-- /login/all/loginPage.lg 에서 [아이디찾기] 클릭 
+	 -> /login/all/findUserId.lg -> finIdPage.jsp -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>로그인</title>
+<title>아이디찾기</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -48,15 +49,15 @@
 								<div class="col-12 col-md-9 mx-auto">
 									<div class="form-floating">
 										<input type="text" name="userId" id="userId"
-											class="form-control  border-0" placeholder="ID" required
-											autofocus> <label for="userId">ID</label>
+											class="form-control  border-0" placeholder="ID"  autofocus> 
+										<label for="userId">ID</label>
 									</div>
 								</div>
 								<br>
 								<div class="col-12 col-md-9 mx-auto">
 									<div class="form-floating">
 										<input type="password" name="password" id="password"
-											class="form-control border-0" placeholder="Password" required>
+											class="form-control border-0" placeholder="Password" autofocus>
 										<label for="password">password</label>
 									</div>
 									<c:if test="${param.err == true}">

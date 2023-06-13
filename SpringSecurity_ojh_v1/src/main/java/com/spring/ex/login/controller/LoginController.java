@@ -23,18 +23,18 @@ login-processing-url에 설정된 URL(/login.lg)로 전송된 로그인 요청�
 @Controller
 public class LoginController {
 	
-	private final String command ="/login/loginPage.lg";
+	private final String command ="/login/all/loginPage.lg";
 	private final String commandDenied ="/login/accessDenied.lg";
 	private String gotoPage = "/login/loginPage";
 	private String getDeniedPage = "/login/accessDenied";
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	//로그인 페이지 URL 띄우기 -> command(/login/loginPage.lg)
+	//로그인 페이지 URL 띄우기 -> command(/login/all/loginPage.lg)
 	@RequestMapping(value=command)
 	public ModelAndView loginPage() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName(gotoPage);// /login/loginPage
+		mav.setViewName(gotoPage);// /login/all/loginPage.lg
 		return mav; 
 		
 	}//loginPage

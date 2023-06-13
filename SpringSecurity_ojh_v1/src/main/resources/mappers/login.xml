@@ -4,7 +4,7 @@
 
 <mapper namespace="login">
 
-	<resultMap type="com.spring.ex.login.model.UsersBean" id="UserMap">
+	<resultMap type="com.spring.ex.users.model.UsersBean" id="loginMap">
 		 <result property="userNum" column="user_num"/>
 		 <result property="userId" column="user_id"/>
 		 <result property="password" column="password"/>
@@ -19,10 +19,8 @@
 		 <result property="addressSub" column="address_sub"/>
 	</resultMap>
 
-	
-	<!-- <select id="getInfo" parameterType="com.spring.ex.login.model.UsersBean" 
-						 resultType="com.spring.ex.login.model.UsersBean"> -->
-	 <select id="getInfo" resultMap="UserMap">
+	<!-- 사용자 정보가져오기 -->
+	<select id="getInfo" resultMap="UserMap">
 		SELECT 
 				user_num as userNum,
 				user_id as userId,
@@ -40,5 +38,12 @@
 	    FROM users
 	    WHERE user_id = #{userId}
 	</select>
-
+	<!-- //사용자 정보가져오기 -->
+	
+	<!-- 사용자 회원가입 -->
+	<insert id="insertUser">
+	insert into users(user_num, user_id, password, name, birth, gender, email, phone, status, user_role, udate, address, address_sub)
+	values(users_seq.nextval, #{userId}, #{password}, #{name}, #{birth}, #{gender}, #{email}, #{phone}, 'Y', 'r01', sysdate, #{address}, #{addressSub})
+	</insert>
+	<!-- //사용자 회원가입 -->
 </mapper>

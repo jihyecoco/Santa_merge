@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spring.ex.login.model.UsersBean;
-import com.spring.ex.login.model.UsersDao;
+import com.spring.ex.users.model.UsersBean;
+import com.spring.ex.users.model.UsersDao;
 
 /*
 security-context.xml에서 default-target-url="/main.do" 
